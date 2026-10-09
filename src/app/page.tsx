@@ -940,9 +940,16 @@ export default function Home() {
                   {filteredMessages.map((message) => {
                     const highlighted = analysis.important.some((item) => item.messageId === message.id);
                     const active = selectedMessage === message.id;
+                    const sender = message.sender?.trim().toLowerCase();
+                    const currentUser = userName.trim().toLowerCase();
+                    const outgoing = Boolean(sender && (
+                      sender === "me" ||
+                      sender === "you" ||
+                      (currentUser && sender === currentUser)
+                    ));
                     return (
                       <div
-                        className={`message-row ${highlighted ? "message-highlighted" : ""} ${active ? "message-active" : ""}`}
+                        className={`message-row ${outgoing ? "message-outgoing" : ""} ${highlighted ? "message-highlighted" : ""} ${active ? "message-active" : ""}`}
                         key={message.id}
                         ref={(element) => { sourceRefs.current[message.id] = element; }}
                       >

@@ -2864,31 +2864,105 @@ main {
 }
 
 .app-home .message-row {
-  border-top-color: #2b3226;
+  margin-bottom: 10px;
+  padding: 0;
+  border: 0;
+  gap: 8px;
 }
 
 .app-home .message-row.message-highlighted {
-  border-left-color: #b8d978;
-  background: rgb(210 244 138 / 4%);
+  border: 0;
+  background: transparent;
 }
 
 .app-home .message-row.message-active {
-  background: rgb(210 244 138 / 9%);
-  box-shadow: inset 0 0 0 1px rgb(210 244 138 / 20%);
+  background: transparent;
+  box-shadow: none;
+}
+
+.app-home .message-list {
+  padding: 14px 12px 6px;
+  border: 1px solid #26343b;
+  border-radius: 12px;
+  background-color: #11191d;
+  background-image: url("/chat-doodle-wallpaper.svg");
+  background-position: center top;
+  background-repeat: repeat;
+  background-size: 240px 240px;
+  scrollbar-color: #3c4a50 #0b141a;
+}
+
+.app-home .message-body {
+  width: fit-content;
+  max-width: min(82%, 680px);
+  flex: 0 1 auto;
+  padding: 8px 10px 9px;
+  border-radius: 4px 12px 12px 12px;
+  background: #202c33;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 20%);
+}
+
+.app-home .message-row.message-outgoing {
+  justify-content: flex-end;
+}
+
+.app-home .message-row.message-outgoing .message-avatar {
+  display: none;
+}
+
+.app-home .message-row.message-outgoing .message-body {
+  border-radius: 12px 4px 12px 12px;
+  background: #075e4e;
+}
+
+.app-home .message-row.message-outgoing .message-meta {
+  justify-content: flex-end;
+}
+
+.app-home .message-row.message-outgoing .message-meta strong {
+  display: none;
+}
+
+.app-home .message-row.message-highlighted .message-body {
+  background: #26372f;
+  box-shadow: inset 2px 0 #b8d978, 0 1px 1px rgb(0 0 0 / 20%);
+}
+
+.app-home .message-row.message-outgoing.message-highlighted .message-body {
+  background: #0b6b58;
+  box-shadow: inset 2px 0 #b8d978, 0 1px 1px rgb(0 0 0 / 20%);
+}
+
+.app-home .message-row.message-active .message-body {
+  background: #2b4035;
+  box-shadow: inset 0 0 0 1px rgb(210 244 138 / 36%), 0 1px 1px rgb(0 0 0 / 20%);
+}
+
+.app-home .message-row.message-outgoing.message-active .message-body {
+  background: #117360;
 }
 
 .app-home .message-avatar {
-  border-color: #394231;
-  background: #20271a;
-  color: #d6eba9;
+  margin-top: 4px;
+  border-color: #34434a;
+  background: #26343b;
+  color: #c4d6db;
 }
 
 .app-home .message-meta strong {
-  color: #e2e6d9;
+  color: #8bd5b5;
+}
+
+.app-home .message-row.message-outgoing .message-meta strong {
+  color: #8bd5b5;
 }
 
 .app-home .message-meta > span {
-  color: #969d89;
+  color: #9aabb1;
+}
+
+.app-home .message-row.message-outgoing .message-meta > span {
+  color: #b4d9ce;
 }
 
 .app-home .message-meta .message-flag {
@@ -2897,8 +2971,8 @@ main {
 }
 
 .app-home .message-body > p {
-  color: #c3cabb;
-  line-height: 1.75;
+  color: #e3e9eb;
+  line-height: 1.6;
 }
 
 .app-home .limitations-note {
@@ -3131,8 +3205,12 @@ main {
   }
 
   .app-home .message-row {
-    padding: 12px 6px;
+    padding: 0;
     gap: 8px;
+  }
+
+  .app-home .message-body {
+    max-width: min(90%, 680px);
   }
 
   .app-home .message-body > p {
