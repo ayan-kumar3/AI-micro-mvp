@@ -200,7 +200,7 @@ export async function POST(request: Request) {
   const apiKey = process.env.GEMINI_API_KEY?.trim();
   if (!apiKey) {
     return NextResponse.json(
-      { error: "Gemini is not configured. Add GEMINI_API_KEY to .env.local and restart the app." },
+      { error: "Gemini is not configured. Add GEMINI_API_KEY in your deployment's Environment Variables and redeploy the app." },
       { status: 503 },
     );
   }
